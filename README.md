@@ -1,6 +1,6 @@
 # snippets2
 
-A first package where I put useful functionality
+A first package where I put useful functionality i use in my analyses.
 
 ## Installation
 
