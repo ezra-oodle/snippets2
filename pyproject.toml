@@ -1,14 +1,16 @@
 [tool.poetry]
 name = "snippets2"
 version = "0.1.0"
-description = "A first package where I put useful functionality"
+description = "A package for customised Oodle plotting"
 authors = ["Ezra Citron"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pytest = "^6.2.5"
+pandas = "^1.3.5"
+plotnine = "^0.8.0"
+
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
