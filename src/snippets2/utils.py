@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from typing import Union
 
 def show_all_columns(df):
     # I dont think this is working
@@ -82,7 +83,7 @@ def csv_string_to_df(input_string):
     return(df_from_String)
 
 def test_func():
-    print("woo, workig!")
+    print("woo, orkig!")
 
 def print_df_dims(df: pd.DataFrame,df_rows: int) -> None:
     """Print formatted row and column dimensions of a dataframe"""
@@ -90,3 +91,18 @@ def print_df_dims(df: pd.DataFrame,df_rows: int) -> None:
     print(
         f"Rows: {df.shape[0]} ({percent_of_total}% of full dataframe)\nColumns: {df.shape[1]}"
     )
+
+
+def value_counts_v2(s: Union[pd.Series, pd.DataFrame]) -> pd.DataFrame:
+    """
+    Returns that normalised and unnormalised columns in value_counts()
+    Useful when you want to know absoluoute number any percentage
+    """
+
+    if isinstance(s, pd.Series):
+        s = s.to_frame()
+
+    df = s.value_counts(normalize=False, dropna=False).reset_index()
+    df.columns = list(df.columns[0:-1]) + ["n"]
+    df = df.assign(p=lambda df: df.n / sum(df.n))
+    return df
