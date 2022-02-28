@@ -85,8 +85,10 @@ def csv_string_to_df(input_string):
 def test_func():
     print("woo, orkig!")
 
-def print_df_dims(df: pd.DataFrame,df_rows: int) -> None:
+def print_df_dims(df: pd.DataFrame,df_rows: int = None) -> None:
     """Print formatted row and column dimensions of a dataframe"""
+    if df_rows is None:
+        df_rows = df.shape[0]
     percent_of_total = round(100*(df.shape[0]/df_rows ),3)
     print(
         f"Rows: {df.shape[0]} ({percent_of_total}% of full dataframe)\nColumns: {df.shape[1]}"
