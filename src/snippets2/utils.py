@@ -14,7 +14,7 @@ def show_all_columns(df):
 def csnapshot(df: pd.DataFrame, fn = lambda x : x.shape, msg = None) -> pd.DataFrame:
     """
     Custom help function to print out things during method chaining
-    Inputs a df and outputs a df. 
+    Inputs a df and outputs a df.
     """
     if msg:
         print(msg)
@@ -37,7 +37,7 @@ def cfilter(df, fn, axis="rows"):
         thats similar in shape to the dataframe
         axis = rows or columns to be filtered.
         A single level indexing
-        
+
         (
             iris.pipe(
             setcols,
@@ -60,13 +60,13 @@ def filter_out_none_cols(df,threshold = 500):
     """Looks for the number of 'None's in each column, filters out the column is there is graet number than the threshold"""
     good_cols = df.columns[ np.sum(df=='None',axis= 0) < threshold ]
     return df.loc[:,good_cols]
-    
+
 
 def df_to_code(df):
     """
     Returns a string that defines to df, used for producing minimal reporoducable examples
     or simple dfs to be used in unit testing.
-    eval(df_string) could be used to evaluate the string, or copy paste into code. 
+    eval(df_string) could be used to evaluate the string, or copy paste into code.
     """
     df_string = ( f"pd.DataFrame ( { str( df.to_dict() ) } )")
     return(df_string)
