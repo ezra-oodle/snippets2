@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "snippets2"
-version = "0.1.0"
+version = "0.2.1"
 description = "A package for customised Oodle plotting"
 authors = ["Ezra Citron"]
 license = "MIT"
