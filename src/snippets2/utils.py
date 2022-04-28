@@ -2,6 +2,15 @@ import pandas as pd
 import numpy as np
 from typing import Union
 
+
+from typing import Dict
+
+def map_values(dataframe, col, mapping_dict:Dict):
+    """Map values in columns to other values"""
+    return dataframe.assign(
+        **{col : lambda df: np.select( [df[col] == i for  i in mapping_dict.keys()],mapping_dict.values() ,default=df[col] )} )
+
+
 def show_all_columns(df):
     # I dont think this is working
     """Set and then reset max column width"""
