@@ -7,6 +7,10 @@ A first package where I put useful functionality i use in my analyses.
 ```bash
 $ pip install snippets2
 ```
+or with poetry 
+```
+poetry add git+ssh://git@github.com:ezra-oodle/snippets2.git#main
+```
 
 ## Usage
 
