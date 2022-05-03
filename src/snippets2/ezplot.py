@@ -18,7 +18,9 @@ class Colours:
     def __init__(self):
         pass
     
+import pkg_resources
 
-def oodle_watermark(filename= 'img/Oodle Car Finance Logo (digital).png',*args,**kwargs):
-    return p9.watermark(filename,*args,**kwargs)
+def oodle_watermark(*args,**kwargs):
+    FILE_PATH = pkg_resources.resource_filename('snippets2','img/oodle_logo.png')
+    return p9.watermark(FILE_PATH,*args,**kwargs)
 
