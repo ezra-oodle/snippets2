@@ -1,15 +1,13 @@
 import pandas as pd
 import numpy as np
 from typing import Union
-
-
 from typing import Dict
 
-def map_values(dataframe, col, mapping_dict:Dict):
-    """Map values in columns to other values"""
-    return dataframe.assign(
-        **{col : lambda df: np.select( [df[col] == i for  i in mapping_dict.keys()],mapping_dict.values() ,default=df[col] )} )
-
+def map_values(s:pd.Series, mapping_dict: Dict[str,str])-> pd.Series:
+    """
+    Outputs a Series with values mapped to other values
+    """
+    return np.select( [s == i for  i in mapping_dict.keys()],mapping_dict.values() ,default=s )
 
 def show_all_columns(df):
     # I dont think this is working
