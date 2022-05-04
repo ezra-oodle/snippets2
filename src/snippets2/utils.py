@@ -115,3 +115,9 @@ def value_counts_v2(s: Union[pd.Series, pd.DataFrame]) -> pd.DataFrame:
     df.columns = list(df.columns[0:-1]) + ["n"]
     df = df.assign(p=lambda df: df.n / sum(df.n))
     return df
+
+def reload_all_modules(package):
+    import sys
+    sub_modules = [i[1] for i in sys.modules.items() if package in i[0]]
+    for i in sub_modules:
+        importlib.reload(i)
