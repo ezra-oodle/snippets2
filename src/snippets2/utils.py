@@ -1,4 +1,6 @@
 import pandas as pd
+import sys
+import importlib
 import numpy as np
 from typing import Union
 from typing import Dict
@@ -117,7 +119,6 @@ def value_counts_v2(s: Union[pd.Series, pd.DataFrame]) -> pd.DataFrame:
     return df
 
 def reload_all_modules(package):
-    import sys
     sub_modules = [i[1] for i in sys.modules.items() if package in i[0]]
     for i in sub_modules:
         importlib.reload(i)
