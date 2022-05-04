@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import plotnine as pn
+import pkg_resources
 
 class Colours:
     """A dataclass for Oodle's color pallete"""
@@ -18,7 +19,6 @@ class Colours:
     def __init__(self):
         pass
     
-import pkg_resources
 
 def oodle_watermark(*args,**kwargs):
     FILE_PATH = pkg_resources.resource_filename('snippets2','img/oodle_logo.png')
